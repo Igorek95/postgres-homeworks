@@ -1,7 +1,7 @@
 -- SQL-команды для создания таблиц
 CREATE TABLE employees
 (
-	employee_id int PRIMARY KEY,
+	employees_id int PRIMARY KEY,
 	first_name varchar(100) NOT NULL,
 	last_name varchar(100) NOT NULL,
 	title varchar(100) NOT NULL,
@@ -19,8 +19,8 @@ CREATE TABLE customers
 CREATE TABLE orders
 (
 	order_id int PRIMARY KEY,
-	customer_id text,
-	employee_id int,
+    customer_id REFERENCES customers(customer_id) NOT NULL,
+	employee_id REFERENCES employees(employees_id) NOT NULL,
 	order_date varchar(10) NOT NULL,
 	ship_city varchar(50) NOT NULL
 )
